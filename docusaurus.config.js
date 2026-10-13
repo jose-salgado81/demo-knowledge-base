@@ -154,7 +154,7 @@ const config = {
             items: [
               {
                 label: 'This Demo files on GitHub', 
-                href: 'https://github.com/jose-salgado81/XLeap-Docs-demo/tree/main/docs',            
+                href: 'https://github.com/jose-salgado81/demo-knowledge-base',            
               },
               {
                 label: 'The Docusaurus engine',
