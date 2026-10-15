@@ -1,34 +1,13 @@
 ---
 sidebar_position: 2
 ---
-
-
-
 # Video Library
 
-In this section I'll try to showcase the capabilities for including video in the KB. Ideally the videos should be embedded in their corresponding articles,
-the goal here is just to show ideas on what can be done.
+This section showcases the video capabilities of this Knowledge Base (KB). Ideally, explainer videos should be embedded directly within the context of their corresponding KB articles.
 
+##  YouTube videos
 
-##  YouTube video
-
-In the following example I will embed a youtube video with attributes that will allow fullscreen display on any device
-the code I will use is:  
-
-
-```jsx
-<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px' }}>
-  <iframe 
-    src="https://www.youtube.com/embed/l1E2oLydIRM?si=k36wNcjU-99rpnJK" 
-    title="YouTube video player" 
-    frameBorder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerPolicy="strict-origin-when-cross-origin" 
-    allowFullScreen
-    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-  </iframe>
-</div>
-```  
+Example of a YouTube video embedded in the article (position and size can be adjusted):
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px' }}>
   <iframe 
@@ -42,45 +21,36 @@ the code I will use is:
   </iframe>
 </div>
 
-If it is too big, I can edit the style attributes to  50%:    
+## Video Files
 
+All modern browsers have an integrated media player, allowing visitors to play MP4, WebM, and other video files directly within the article. Unlike YouTube videos, there are no advertisements or Calls-to-Action (CTAs) prompting users to leave the KB.
 
-<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px' }}>
-  <iframe 
-    src="https://www.youtube.com/embed/l1E2oLydIRM?si=k36wNcjU-99rpnJK" 
-    title="YouTube video player" 
-    frameBorder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerPolicy="strict-origin-when-cross-origin" 
-    allowFullScreen
-    style={{ position: 'absolute', top: 0, left: 0, width: '50%', height: '50%' }}>
-  </iframe>
-</div>
-##  Local video
-
-  Now I'm going to embed a "local" video. Among the advantages of using local files is that visitors remain in the KB and that no third party CTAs or ads are shown. Also it is possible to
-  add controls to the browser media player (show captions, speed)
-
-<video controls width="25%">
-  <source src={require('./img/local.mp4').default} type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-
+It is also possible to preset the media player controls. In the following example, the mp4 video is preset to mute, displayed at 50% width, and centered on the page.
 
   
-    
-    The following is a test to see if it is possible to embed a "card" in the middle of a local mp4 video that references to another video in the library, 
-    or even an article in the knowledge base. a react component is sensing the browser player and detects when it reaches second 10 and displays the card,
-    all aspects of the card can be customized. 
+<div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
+  <video controls width="50%" muted>
+    <source src={require('./img/local.mp4').default} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
 
-    
+
+
+## Interactive Cards
+
+Sometimes, during a video, you may want to point viewers to ancillary videos or articles. For example, if a video covers Topic B, you might want to recommend watching a video about Topic A first.
+
+In the following example, a custom card is configured to appear at the 9-second mark and disappear at the 18-second mark. Every aspect of the card's appearance and timing can be customized. In this example, rather than linking to another video, this card directs you to a specific section within a Knowledge Base article.
+
+
 import InteractiveVideo from '@site/src/components/InteractiveVideo';
 
 <InteractiveVideo 
   startTime={9}
   endTime={18}
-  title="📌  prerequisite watch"
-  text="Ideally you should already ... if not, watch now."
-  linkUrl="/docs/videolibrary/other-video"
+  title="📌 Recommended watch"
+  text="If you haven't already watched the Overview of the Brainstorm workspace, watch it now."
+  linkUrl="/docs/invitationdialogue/Login%20Requirements#step-by-step-guide"
   linkText="Watch Overview Brainstorm workspace →"
 />

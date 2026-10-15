@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Link from '@docusaurus/Link'; // 1. Import the native Docusaurus Link utility
 
 export default function InteractiveVideo({ 
   src = "/img/brainstorm_tutorial-run_brainstorming_session_en.mp4", 
@@ -52,8 +53,10 @@ export default function InteractiveVideo({
         }}>
           <h4 style={{ margin: '0 0 8px 0', fontSize: '15px' }}>{title}</h4>
           <p style={{ fontSize: '13px', margin: '0 0 12px 0', opacity: 0.9 }}>{text}</p>
-          <a 
-            href={linkUrl} 
+          
+          {/* 2. Swapped <a> for <Link> and changed "href" to "to" */}
+          <Link 
+            to={linkUrl} 
             style={{ 
               fontSize: '13px', 
               fontWeight: 'bold', 
@@ -62,7 +65,7 @@ export default function InteractiveVideo({
             }}
           >
             {linkText}
-          </a>
+          </Link>
         </div>
       )}
     </div>
