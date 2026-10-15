@@ -1,46 +1,75 @@
 ---
-title: Mermaid
-description: Learn how to create Mermaid diagrams inside the XLeap knowledge base.
-sidebar_label: Mermaid
+sidebar_position: 2
 ---
 
-Mermaid lets you describe diagrams as simple text and render them into visual flowcharts, sequence diagrams, and more. 
+# Mermaid Diagrams
 
+## Overview
 
-Mermaid uses json to generate complex diagrams without the need to use image files.
-LLms can read the json code, and understand the digram, even if the llm doest include an image processing component.
+ Mermaid is an open source JavaScript-based diagramming syntax that is becoming the standard in the
+software documentation industry. Mermaid lets you describe diagrams as simple text and render them into visual flowcharts or sequence diagrams
+without image files, right in the browser. Large Language Models (LLMs) can read the plain-text syntax and understand the diagram, even if the LLM doesn't include an image processing component.
+So it is very economical for llms to process and learn from Mermaid diagrams.
 
+To learn more about Mermaid diagrams visit [this site](https://mermaid.ai/open-source/intro/index.html).
 
+Mermaid diagrams are useful when you want to explain a process or architecture directly inside your documentation.
 
-
-
-This is especially useful when you want to explain a process or architecture directly inside your documentation.
-
-```mermaid
-flowchart LR
-    A[Idea] --> B[Document it]
-    B --> C[Create diagram]
-    C --> D[Publish article]
-    D --> E[Share with readers]
-```
-
-## Why use Mermaid?
-
-- Simple syntax that lives in the same markdown file as the content
-- Easy to maintain alongside documentation updates
-- Great for process flows, architecture diagrams, and decision trees
-
-## Example: a content workflow
+### Example 1: Sequence Diagram (How a bill becomes law in the USA) 
 
 ```mermaid
 sequenceDiagram
-    participant Author as Author
-    participant Docs as Knowledge base
-    participant Reader as Reader
+    participant Sponsor as Bill sponsor
+    participant Committee as Congressional committee
+    participant House as House of Representatives
+    participant Senate as Senate
+    participant President as President
 
-    Author->>Docs: Publish article
-    Docs-->>Reader: Share updated guidance
-    Reader->>Author: Ask follow-up questions
+    Sponsor->>Committee: Introduce bill
+    Committee->>House: Report bill for vote
+    House->>Senate: Pass amended bill
+    Senate-->>House: Return with changes
+    House->>President: Send final bill
+    President-->>Sponsor: Sign into law or veto
+
+
 ```
 
-Mermaid keeps visual explanations lightweight and readable, which makes it a good fit for a knowledge base that needs both clarity and speed.
+If you are curious about the code used to render the previous diagram, it is the following:
+
+```javascript
+mermaid
+sequenceDiagram
+    participant Sponsor as Bill sponsor
+    participant Committee as Congressional committee
+    participant House as House of Representatives
+    participant Senate as Senate
+    participant President as President
+
+    Sponsor->>Committee: Introduce bill
+    Committee->>House: Report bill for vote
+    House->>Senate: Pass amended bill
+    Senate-->>House: Return with changes
+    House->>President: Send final bill
+    President-->>Sponsor: Sign into law or veto
+```
+
+
+### Example 2: Another Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop HealthCheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+```
+
+
+

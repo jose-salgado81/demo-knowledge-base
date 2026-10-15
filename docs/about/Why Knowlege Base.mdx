@@ -40,7 +40,6 @@ The following is an animaged gif image (833 Kbs in size)
 
 To learn about the possibilities for video in the Knowledge Base, visit the [video library section](/docs/videolibrary/Video%20Library).
 
-
 ## 4. LLMs Ready
 
 LLMs like ChatGPT and Gemini learn about software by processing websites and user manuals. While they learn from various file types, they prefer Markdown language, since it is machine-readable and explicitly structures knowledge hierarchy and mark up.
@@ -95,17 +94,22 @@ Critical warning! Use this for dangerous actions or destructive steps.
 :::
 
 
-### 5.3 Mermaid Diagrams
+### 5.3 Diagrams
 
-The following diagram is not an image, it is code and it can be understood by llms and other machines
+The KB allows to use code (mermaid syntax) to create diagrams. Use diagrams to illustrate processes or decision-making.
+Since the diagrams are based on code and not images, they are very light, they get as detailed as needed and they can 
+be understood by both humans and llms. 
+
+Example:
 
 ```mermaid
 graph TD
-    A[Start: Write Markdown] --> B{Are the brainstorm ideas diverse?}
+    A[Start: After entering brainstorm ideas] --> B{Are the brainstorm ideas diverse?}
     B -->|Yes| C[Categorize in Folders]
     B -->|No| D[Proceed to Ratings]
     D --> A
 ```
+To learn more about the possibilities of mermaid diagrams, visit the [Diagrams section](/docs/diagrams/mermaid.mdx)
 
 ### 5.4 Code Blocks
 If you need to communicate code that can be easily copy and pasted 
