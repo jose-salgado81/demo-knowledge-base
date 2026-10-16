@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Link from '@docusaurus/Link'; // 1. Import the native Docusaurus Link utility
 
 export default function InteractiveVideo({ 
-  src = "/img/brainstorm_tutorial-run_brainstorming_session_en.mp4", 
+  src = "/img/howtorunbs.mp4", 
   startTime = 10, 
   endTime = 15, 
   title = "📌 Recommended Check", 
