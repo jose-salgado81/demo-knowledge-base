@@ -1,14 +1,18 @@
-import { GoogleGenAI } from '@google/genai';
+const { GoogleGenAI } = require('@google/genai');
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    // Safely parse body whether it's sent as a string or an object
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return res.status(500).json({ error: 'GEMINI_API_KEY is missing from environment variables.' });
+    }
+
+    const ai = new GoogleGenAI({ apiKey });
+
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
     const prompt = body?.prompt;
 
@@ -26,4 +30,4 @@ export default async function handler(req, res) {
     console.error('Chat API Error:', error);
     return res.status(500).json({ error: error.message || 'Internal server error' });
   }
-}
+};
