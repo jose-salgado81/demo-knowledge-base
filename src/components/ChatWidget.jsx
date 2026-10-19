@@ -45,12 +45,15 @@ export default function ChatWidget() {
           className="button button--primary button--lg"
           style={{ borderRadius: '50px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
         >
-          💬 KB Support Assistant <span style={{ fontSize: '11px', background: '#ffc107', color: '#000', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', fontWeight: 'bold' }}>BETA</span>
+          💬 KB Support Assistant 
+          <span style={{ fontSize: '11px', background: '#ffc107', color: '#000', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', fontWeight: 'bold' }}>
+            BETA
+          </span>
         </button>
       ) : (
         <div style={{ width: '320px', height: '420px', background: 'var(--ifm-background-color)', border: '1px solid var(--ifm-color-emphasis-200)', borderRadius: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
           
-          {/* Chat Header with Beta Badge */}
+          {/* Chat Header with BETA Badge */}
           <div style={{ padding: '12px 16px', background: 'var(--ifm-color-primary)', color: '#fff', borderTopLeftRadius: '12px', borderTopRightRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <strong>KB Support Assistant</strong>
@@ -72,8 +75,8 @@ export default function ChatWidget() {
           {/* Messages Area */}
           <div style={{ flex: 1, padding: '12px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '14px' }}>
             
-            {/* Beta Banner Notice inside the chat */}
-            <div style={{ background: 'var(--ifm-color-warning-lightest, #fff3cd)', color: 'var(--ifm-color-warning-darkest, #856404)', padding: '6px 10px', borderRadius: '6px', fontSize: '12px', textAlign: 'center', marginBottom: '4px', border: '1px solid var(--ifm-color-warning-light, #ffeeba)' }}>
+            {/* Under Development Warning Notice */}
+            <div style={{ background: '#fff3cd', color: '#856404', padding: '6px 10px', borderRadius: '6px', fontSize: '12px', textAlign: 'center', marginBottom: '4px', border: '1px solid #ffeeba' }}>
               ⚠️ Feature in Beta. Under active development.
             </div>
 
