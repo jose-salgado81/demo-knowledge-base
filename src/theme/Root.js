@@ -36,7 +36,7 @@ export default function Root({ children }) {
       <div style={styles.container}>
         {!isOpen ? (
           <button onClick={() => setIsOpen(true)} style={styles.toggleBtn}>
-            💬 AI Support <span style={styles.badge}>BETA</span>
+            💬 Chatbot Support <span style={styles.badge}>BETA</span>
           </button>
         ) : (
           <div style={styles.window}>
@@ -50,7 +50,7 @@ export default function Root({ children }) {
             <div style={styles.messages}>
               {/* Beta Warning Notice Banner */}
               <div style={styles.banner}>
-                ⚠️ Feature in Beta. Under active development.
+                ⚠️ Feature under development. 
               </div>
 
               {messages.map((m, idx) => (
