@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', text: 'Hello! How can I help you with xLeap  today?' }
+    { role: 'assistant', text: 'Hello! How can I help you with xLeap today?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -45,7 +45,7 @@ export default function ChatWidget() {
           className="button button--primary button--lg"
           style={{ borderRadius: '50px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
         >
-          💬 KB Support Assistant 
+          💬 Xleap Support Assistant 
           <span style={{ fontSize: '11px', background: '#ffc107', color: '#000', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', fontWeight: 'bold' }}>
             BETA
           </span>
@@ -56,7 +56,7 @@ export default function ChatWidget() {
           {/* Chat Header with BETA Badge */}
           <div style={{ padding: '12px 16px', background: 'var(--ifm-color-primary)', color: '#fff', borderTopLeftRadius: '12px', borderTopRightRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <strong>KB Support Assistant</strong>
+              <strong>XLeap Support Assistant</strong>
               <span style={{ 
                 background: '#ffc107', 
                 color: '#000', 
@@ -77,7 +77,7 @@ export default function ChatWidget() {
             
             {/* Under Development Warning Notice */}
             <div style={{ background: '#fff3cd', color: '#856404', padding: '6px 10px', borderRadius: '6px', fontSize: '12px', textAlign: 'center', marginBottom: '4px', border: '1px solid #ffeeba' }}>
-              ⚠️ Feature in Beta. Under active development.
+              ⚠️ Feature under development.
             </div>
 
             {messages.map((msg, idx) => (
