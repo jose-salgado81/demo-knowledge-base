@@ -20,28 +20,24 @@ module.exports = async function handler(req, res) {
 
     const ai = new GoogleGenAI({ apiKey });
 
-    // Try primary model, with a fallback if overloaded
-    let responseText = '';
-    try {
-      const response = await ai.models.generateContent({
-        model: 'gemini-flash-latest',
-        contents: prompt,
-      });
-      responseText = response.text;
-    } catch (modelError) {
-      console.warn('Primary model busy, trying fallback...', modelError);
-      // Fallback model or friendly message if 503
-      if (modelError.message && modelError.message.includes('503')) {
-        return res.status(503).json({ 
-          error: 'The AI assistant is currently experiencing high traffic (Beta). Please try again in a moment!' 
-        });
-      }
-      throw modelError;
-    }
+    // Call Gemini API directly
+    const response = await ai.models.generateContent({
+      model: 'gemini-flash-latest',
+      contents: prompt,
+    });
 
-    return res.status(200).json({ text: responseText });
+    return res.status(200).json({ text: response.text });
   } catch (error) {
     console.error('Chat API Error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    
+    // Check if it's a 503 Overloaded error from Gemini
+    const errorMessage = error.message || '';
+    if (errorMessage.includes('503') || errorMessage.includes('UNAVAILABLE') || errorMessage.includes('high demand')) {
+      return res.status(503).json({ 
+        error: 'The AI model is temporarily experiencing high demand (503). Please try again shortly.' 
+      });
+    }
+
+    return res.status(500).json({ error: errorMessage || 'Internal server error' });
   }
 };

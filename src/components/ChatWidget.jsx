@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', text: 'Hello! How can I help you with the knowledge base today?' }
+    { role: 'assistant', text: 'Hello! How can I help you with xLeap  today?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
