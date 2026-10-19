@@ -50,7 +50,7 @@ export default function Root({ children }) {
             <div style={styles.messages}>
               {/* Beta Warning Notice Banner */}
               <div style={styles.banner}>
-                ⚠️ Feature under development. 
+                ⚠️ Feature under development. It will take the question .
               </div>
 
               {messages.map((m, idx) => (
